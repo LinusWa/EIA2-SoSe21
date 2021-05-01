@@ -1,0 +1,56 @@
+body{
+    background-color: #202020;
+}
+h1 {
+    color: orangered;
+    text-align: center;
+    font-family: 'Century Gothic', Arial, Helvetica, sans-serif;
+}
+.board{
+    position: absolute;
+    display: flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    width: 900px;
+    height: 500px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+form{
+    background-color: lightblue;
+    font-family: 'Century Gothic', Arial, Helvetica, sans-serif;
+    width: 70%;
+    margin-left: 15%;
+    margin-top: 5%;
+}
+#startButton{
+    margin-left: 5%;
+    margin-bottom: 2%;
+    font-size: x-large;
+    color: orangered;
+    background-color: #202020;
+}
+
+.front{
+    background-color: white;
+    flex-direction: column;
+    position: relative;
+    margin-left: 5px;
+    margin-right: 5px;
+    align-self: center;
+    display: none;
+    font-size: x-large;
+    text-align: center;
+}
+
+.back{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-self: center;
+}
+

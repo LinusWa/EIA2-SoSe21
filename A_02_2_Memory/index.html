@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css"></style>
+    <title>Memory</title>
+</head>
+<body>
+
+<h1>Memory</h1>
+
+<form id="formElement">
+
+    <fieldset id="fsSpecial">
+		<legend> Mit wie viel Kartenpaaren möchten sie spielen? </legend>
+		Paare:
+		<input type="number" name="Stepper" step="1" min="5" max="25" value="5" id="stepper" />
+	</fieldset>
+
+    <br>
+
+    <fieldset>
+        <legend> Wie groß sollen die Karten sein? </legend>
+        Kartengröße
+		<input type="range" name="Slider" min="50" max="100" step="10" value="50" id="slider" />
+    </fieldset>
+
+    <br>
+
+    <fieldset>
+        <legend> Wählen sie die Farben aus</legend>
+        Hintergrundfarbe
+		<input type="color" name="background" placeholder="#202020" id="backgroundColor" value="#202020">
+        <hr>
+        Kartenfarbe
+		<input type="color" name="cardback" placeholder="white" id="cardColor" value="#ffffff">
+        <hr>
+        Schriftfarbe
+		<input type="color" name="fontcolor" placeholder="black" id="fontColor" value="#000000">
+    </fieldset>
+
+    <br>
+
+    <fieldset>
+        <legend> Wählen sie die Schriftart</legend>
+        <input checked type="radio" name="Radio1" value="Arial" id="radio1" />
+		<label for="radio1">Arial</label>
+		<input type="radio" name="Radio1" value="Century Gothic" id="radio2" />
+		<label for="radio2">Century Gothic</label>
+		<input type="radio" name="Radio1" value="Times New Roman" id="radio3" />
+		<label for="radio3">Times New Roman</label>
+    </fieldset>
+
+    <br>
+
+    <button id="startButton" type="button">Spiel Starten</button>
+
+</form>
+</body>
+</html>
