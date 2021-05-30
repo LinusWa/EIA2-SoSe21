@@ -1,16 +1,39 @@
-// Wenn ich auf Probleme gestoßen bin, habe ich im Internet oder bei Kommilitonen nachgeschaut, um meine eigene Fehlerquellen zu identifizieren. :)
+/*
+In dieser Aufgabe bin ich auf relativ viele Probleme gestoßen. Habe mir relativ viele verschiedene
+Abgaben von Kommolitonen angeschaut, und versucht deren Code nachzuvollziehen und dann meine eigene
+Lösung zusammenzubasteln. Die meiner Ansicht nach beste Lösung hab ich bei Huu Thien gefunden, und mich
+daran orientiert.
 
-namespace Blumencanvas {
+Das erstellen und bewegen der Bienen und Wolken hat relativ problemlos geklappt, aber das tatsächliche
+animieren auf dem Canvas habe ich nicht hinbekommen. Ich habe dann Huu Thien gefragt, mit seiner animate
+Funktion hats dann funktioniert.
+
+*/
+
+
+namespace L09_BlumenwieseClasses {
+
+    export let crc2: CanvasRenderingContext2D;
+    export let canvas: HTMLCanvasElement;
 
     window.addEventListener("load", handleLoad);
+    
+
+    let bees: Bee[] = [];
+    let clouds: Cloud[] = [];
+    let imageData: ImageData;
 
     function handleLoad(): void {
-        
-       flowercanvas();
+
+        canvas = <HTMLCanvasElement>document.querySelector("canvas");
+        crc2 = <CanvasRenderingContext2D>canvas.getContext("2d");
+    
+        flowercanvas();
 
     }
 
     function flowercanvas(): void {
+
         
         if (coinflip() == true)
         daytime();
@@ -23,11 +46,16 @@ namespace Blumencanvas {
         tulip ();
 
         if (i % 10 == 0)
-        clouds();
+        newCloud();
         }
-        
-        
 
+        newBee();
+
+        imageData =  crc2.getImageData(0, 0, window.innerWidth, window.innerHeight);
+        animate();
+
+   
+        
     }
 
     function daytime(): void {
@@ -216,40 +244,40 @@ namespace Blumencanvas {
 
     }
 
-    function clouds(): void {
-
+    function newBee(): void {
         let canvas: HTMLCanvasElement = document.querySelector("canvas")!;
         let crc2: CanvasRenderingContext2D = canvas.getContext("2d")!;
-        let radius: number = 20 * Math.random() + 30;
 
-        crc2.fillStyle = "aliceblue";
+        for (let index: number = 0; index < 20; index ++) {
 
-        let centerx: number = Math.random() * crc2.canvas.width;
-        let centery: number = Math.random() * 0.4 * crc2.canvas.height;
+            let velX: number = Math.random() * 3;
+            if (coinflip() == true)
+            velX = -velX;
+            let velY: number = Math.random() * 3;
+          
+            bees.push(new Bee(crc2.canvas.width / 2, crc2.canvas.height / 2, velX, velY));
+        }
+    }
 
-        crc2.beginPath();
-        crc2.arc(centerx, centery, radius, 0, 2 * Math.PI);
-        crc2.closePath();
-        crc2.fill();
-
-        let radius2: number = radius * 0.2 * Math.random() + 0.5 * radius;
-        let centerx2: number = centerx + 2 * Math.random() * radius + 2 * radius;
-
-        crc2.beginPath();
-        crc2.arc(centerx2, centery + radius - radius2, radius2, 0, 2 * Math.PI);
-        crc2.closePath();
-        crc2.fill();
-
-        crc2.beginPath();
-        crc2.moveTo(centerx, centery + radius);
-        crc2.lineTo(centerx2, centery + radius);
-        crc2.lineTo(centerx2, centery +  radius - 2 * radius2);
-        crc2.lineTo(centerx, centery +  radius - 2 * radius2);
-        crc2.closePath();
-        crc2.fill();
-
-      
+    function newCloud(): void {
+   
+        clouds.push(new Cloud(100, 100));
 
     }
-    
+
+/*
+Diese Funktion habe ich von Huu Thien. 
+*/
+    function animate(): void {
+        requestAnimationFrame(animate);
+        crc2.clearRect(0, 0, crc2.canvas.width, crc2.canvas.height);
+        crc2.putImageData(imageData, 0, 0);
+        for (let index: number = 0; index < bees.length; index ++) {
+            bees[index].move();
+            
+        }
+        for (let index: number = 0; index < clouds.length; index ++) {
+            clouds[index].move();
+        }
+    }
 }
