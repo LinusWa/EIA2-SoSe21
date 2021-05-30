@@ -37,7 +37,7 @@ var L09_BlumenwieseClasses;
             crc2.restore();
         }
         move() {
-            // Wenn die Biene out of bounds fliegt dreht sie um
+            // Wenn die Wolke out of bounds fliegt dreht sie um
             if (this.posY > L09_BlumenwieseClasses.crc2.canvas.height * 0.40 || this.posY < 100) {
                 this.velY = -this.velY;
             }
