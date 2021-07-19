@@ -1,0 +1,200 @@
+
+body {
+
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    background-color: #363636;
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+
+}
+fieldset {
+    border-width: 0;
+}
+canvas {
+    margin-top: 100px;
+}
+#teamsettings{
+    margin-top: 10px;
+
+}
+
+
+button {
+    width: 100px;
+    background-color: orangered;
+    border-radius: 20px;
+    outline: none;
+    padding: 15px;
+    color: lightgray;
+    left: 47%;
+    position: fixed;
+    border: none;
+
+}
+#home {
+    position: fixed;
+    left: 0;
+    padding: 30px;
+}
+#away{
+    position: fixed;
+    right: 0;
+    padding: 30px;
+}
+
+#upper-ui {
+    width: 100%;
+    float: left;
+    margin-top: 100px;
+    position: fixed;
+}
+
+#time {
+    display: inline-block;
+    position: relative;
+    margin-left: 100px;
+
+    margin-top: 20px;
+
+}
+
+#score {
+    display: inline-block;
+    position: relative;
+    margin-top: 20px;
+    font-size: 22px;
+    color: white;
+    font-weight: bold;
+    right: 30px;
+
+}
+
+.sub {
+    width: 20px;
+    height: 20px;
+    overflow: hidden;
+    float: left;
+    border-radius: 100px;
+    color: white;
+    font-size: 12px;
+    border: 2px solid black;
+    vertical-align: middle;
+    line-height: 25px;
+
+}
+
+#current-player{
+    display: inline-block;
+    color: white;
+}
+ 
+.playersettings {
+    margin: 0;
+    margin-left: 30%;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+    width: 20%;
+
+}
+
+.sliders {
+	position: relative;
+	width: 100%;
+	max-width: 1000px;
+    z-index: 0;
+}
+
+.shooting-slider, .pace-slider, .power-slider {
+	position: relative;
+	z-index: 1;
+	height: 10px;
+	margin: 0 15px;
+}
+.shooting-slider > .track,
+.pace-slider > .track, 
+.power-slider > .track {
+	position: absolute;
+	z-index: 1;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	border-radius: 5px;
+	background-color: gray;
+}
+.shooting-slider > .range,
+.pace-slider > .range, 
+.power-slider > .range {
+	position: absolute;
+	left: 25%;
+	right: 25%;
+	top: 0;
+	bottom: 0;
+	border-radius: 5px;
+	background-color: orangered;
+    z-index: 2;
+}
+.shooting-slider > .thumb,
+.pace-slider > .thumb, 
+.power-slider > .thumb {
+	position: absolute;
+	z-index: 3;
+	width: 30px;
+	height: 30px;
+	background-color: orangered;
+	border-radius: 50%;
+	box-shadow: 0 0 0 0 rgba(98,0,238,.1);
+	transition: box-shadow .3s ease-in-out;
+}
+.shooting-slider > .thumb.left,
+.pace-slider > .thumb.left, 
+.power-slider > .thumb.thumb.left {
+	left: 25%;
+	transform: translate(-15px, 0px);
+}
+.shooting-slider > .thumb.right,
+.pace-slider > .thumb.right, 
+.power-slider > .thumb.right {
+	right: 25%;
+	transform: translate(15px, -20px);
+}
+
+input[type=range] {
+	position: relative;
+	pointer-events: none;
+	-webkit-appearance: none;
+	height: 10px;
+	width: 100%;
+	opacity: 0;
+    z-index: 2;
+}
+input[type=range]::-webkit-slider-thumb {
+	pointer-events: all;
+	width: 30px;
+	height: 30px;
+	border-radius: 0;
+	border: 0 none;
+    -webkit-appearance: none;
+}
+#input-left-shooting,
+#input-left-pace,
+#input-left-power {
+    top: 40px;
+}
+
+p {
+    position: absolute;
+    left: 100%;
+    margin-top: -15px;
+}
+h3 {
+    font-size: 22px;
+    margin: 0;
+    margin-top: 5px;
+    padding: 0;
+
+}
